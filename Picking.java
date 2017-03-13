@@ -25,6 +25,14 @@ public class Picking extends KeyAndButton
         else if(i==3){
          GreenfootImage img = new GreenfootImage(">            <",50,Color.DARK_GRAY,null);
          setImage(img);
+        }else if (i==10){
+         GreenfootImage img = new GreenfootImage(">>",30,Color.DARK_GRAY,null);
+         img.rotate(90);
+         setImage(img);
+        }else if (i==11){
+         GreenfootImage img = new GreenfootImage(">>",30,Color.DARK_GRAY,null);
+         img.rotate(90);
+         setImage(img);
         }
     }
     public void act() 

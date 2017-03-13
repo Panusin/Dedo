@@ -42,7 +42,9 @@ public class Ninja extends Actor
         fall();
         checkJump();
         setToOnWallPosition();
-        isDead();
+        if(isDead()){
+            Greenfoot.playSound("dead.wav");
+        }
          
     } 
  
@@ -50,12 +52,14 @@ public class Ninja extends Actor
         //jumpToLeft
         if(Greenfoot.isKeyDown("space")&& rightToLeft == false && onRightWall() ){        
             setLocation(getX()-1,getY()); 
+            playSound("jump.wav");
             rightToLeft = true;
             
         }
         //jumpToright;
          if(Greenfoot.isKeyDown("space") && leftToRight == false && onLeftWall()){
-            setLocation(getX()+1,getY()); 
+            setLocation(getX()+1,getY());
+            playSound("jump.wav");
             leftToRight = true;
             
         }
@@ -124,6 +128,7 @@ public class Ninja extends Actor
         Actor obstacle ;
          //obstacle = getOneIntersectingObject(Obstacle.class);
          obstacle = getOneObjectAtOffset(0,0,Obstacle.class); 
+        
         //obstacle = getOneObjectAtOffset(getImage().getWidth()/2,0,Obstacle.class);
         //obstacle = getOneObjectAtOffset(getImage().getWidth(),0,Obstacle.class);
         //obstacle = getOneObjectAtOffset(0,getImage().getHeight()/2,Obstacle.class);
@@ -203,5 +208,9 @@ public class Ninja extends Actor
       return wall != null;
     }
     
-    
+    public void playSound(String x){
+        GreenfootSound jump = new GreenfootSound(x);
+        jump.setVolume(80);
+        jump.play();
+    }
 }

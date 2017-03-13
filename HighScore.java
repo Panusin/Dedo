@@ -18,18 +18,18 @@ public class HighScore extends Actor
         int score = (Score.score);
         if(highScore == 0){
             highScore = score;
-            GreenfootImage gg = new GreenfootImage("New high score:"+highScore,20,Color.BLACK,null);
+            GreenfootImage gg = new GreenfootImage("New high score:  "+highScore,20,Color.BLACK,null);
             setImage(gg);
         }
         
         if(score > highScore && highScore!=0){
             highScore = score;
-            GreenfootImage gg = new GreenfootImage("New high score: "+highScore,20,Color.BLACK,null);
+            GreenfootImage gg = new GreenfootImage("New high score:  "+highScore,20,Color.BLACK,null);
             setImage(gg);
         }
         
         if (score< highScore && highScore!=0){
-          GreenfootImage gg = new GreenfootImage("High score: "+highScore+"\n\n\n\n Your score: "+ score,20,Color.BLACK,null);
+          GreenfootImage gg = new GreenfootImage("High score: "+highScore+"\n\n Your score:  "+ score,20,Color.BLACK,null);
           setImage(gg);
         }
        

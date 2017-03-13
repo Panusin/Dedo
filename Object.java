@@ -14,18 +14,26 @@ public class Object extends Obstacle
      */
      Ninja nini = new Ninja();
      int num ;
+     static GreenfootSound ss = new GreenfootSound("peopleFall.wav");
     public Object(){
         GreenfootImage img = new GreenfootImage("object"+Greenfoot.getRandomNumber(13)+".png");
         img.scale(50,50);
         setImage(img);
+        ss.setVolume(75);
+        ss.play();
 
     }
+    
+    public void played(){
+        
+    }
+    
     public void act() 
     {
          num = getY()+nini.getRunSpeed();
          setLocation(getX(),num+=2);
          turn(5);
-        
+         
         
         if(isAtEdge()){
            getWorld().removeObject(this);

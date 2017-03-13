@@ -13,7 +13,7 @@ public class Star extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     Ninja nini = new Ninja();
-   
+    GreenfootSound point = new GreenfootSound("collectSun.wav");
     public Star(){
         GreenfootImage img = getImage();
         img.scale(20,20);
@@ -26,6 +26,8 @@ public class Star extends Actor
        
         
         if(isTouching(Ninja.class)){
+            point.setVolume(90);
+            point.play();
             World myWorld = getWorld();
             RunningWorld world = (RunningWorld)myWorld;
             Score score = world.getScore();

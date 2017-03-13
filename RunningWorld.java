@@ -8,12 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class RunningWorld extends World
 {
-     private int time = 0;
+    private int time = 0;
+    int count = 0;
     int decPosition[] = {35,368};
-    int ranNum;
+    private int ranNum;
     Ninja nini = new Ninja();
     Score score = new Score();
     NewWorld newWorld = new NewWorld();
+    SpaceToJump spacebar = new SpaceToJump();
+    ShowGetPoint point = new ShowGetPoint(); //show how to earn point
     
     public RunningWorld()
     {    
@@ -27,15 +30,54 @@ public class RunningWorld extends World
         addObject(score,getWidth()/2,100 );
         setPaintOrder(Cloud.class,Window.class,Ninja.class,KeyAndButton.class,
         ClothesLine.class,Wall2.class,Wall.class);
+        
     }
+    
+    public void started(){
+        newWorld.eiei.play();
+    }
+    
+    public void stopped(){
+        newWorld.eiei.stop();
+    }
+    
     public void act(){
+       newWorld.eiei.setVolume(50);
        easyMode();
        mediumMode();
        hardMode();
+       
        if(nini.isDead()){
+           newWorld.eiei.stop();
+           Prize prize = new Prize();
+           prize.fall.stop();
+           Object ob = new Object();
+           ob.ss.stop();
            Greenfoot.setWorld(new GameOverWorld());
         }
-            
+        
+        
+         if(count == 601){
+             removeObject(spacebar);
+             removeObject(point);
+            }else{
+                count++;
+            }
+                
+        if(count % 30 == 0){
+            addObject(spacebar,getWidth()/2,574);
+        }
+
+        if(count % 60 == 0){
+            removeObject(spacebar);
+            addObject(point,getWidth()/2,130);
+        } 
+        
+         if(count % 90 == 0){
+            removeObject(point);
+            }
+        
+        
            
     }
     
@@ -94,8 +136,8 @@ public class RunningWorld extends World
                 addObject(new Prize(), getWidth()/2,0);
                } 
             
-               if(ranNum < 30){
-                   if(ranNum < 15){
+               if(ranNum < 40){
+                   if(ranNum < 20){
                        addObject(new Star() ,106,0);
                     }else{
                         addObject(new Star() ,295,0);
@@ -162,8 +204,8 @@ public class RunningWorld extends World
                     addObject(new Prize(), getWidth()/2,0);
                 }
                 
-                if(ranNum < 30){
-                    if(ranNum < 15){
+                if(ranNum < 40){
+                    if(ranNum < 20){
                         addObject(new Star() ,106,0);
                     }else{
                         addObject(new Star() ,295,0);
@@ -194,7 +236,7 @@ public class RunningWorld extends World
              nini.setRunSpeed(10);
              nini.setJumpSpeed(12, 1);
              
-       if(time == 1|| time == 25){
+       if(time == 1|| time == 30){
           addObject(new Wall(), 26, -100);
           addObject(new Wall(), 375, -100);
        } 
@@ -212,7 +254,7 @@ public class RunningWorld extends World
          addObject(new Window(), decPosition[Greenfoot.getRandomNumber(decPosition.length)], 0);
        }
            
-       if(time == 50){
+       if(time == 10|| time == 50){
            addObject(new Wall2(), 26, -100);
            addObject(new Wall2(), 375, -100);
           
@@ -233,7 +275,7 @@ public class RunningWorld extends World
                 addObject(new Prize(), getWidth()/2,0);
             }
             if(ranNum < 40){
-                if(ranNum < 15){
+                if(ranNum < 20){
                 addObject(new Star() ,106,0);
                }else{
                 addObject(new Star() ,295,0);
@@ -254,6 +296,7 @@ public class RunningWorld extends World
          }
             
         }
+        
     }
-    
-    }
+}
+   

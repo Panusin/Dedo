@@ -1,23 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
 /**
- * Write a description of class Keys here.
+ * Write a description of class PlayAgain here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Keys extends KeyAndButton
+public class PlayAgain extends KeyAndButton
 {
     /**
-     * Act - do whatever the Keys wants to do. This method is called whenever
+     * Act - do whatever the PlayAgain wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Keys(){
+    public PlayAgain(){
+        GreenfootImage img = new GreenfootImage( "Replay",25,Color.BLACK,null);
+		//mg.setTransparency(100+Greenfoot.getRandomNumber(100)); 
 		
-        GreenfootImage img = new GreenfootImage("Press [ space ] or Up and Down to slide "+"\n Enter to select",20,Color.BLACK,null);
-		img.setTransparency(100+Greenfoot.getRandomNumber(100)); 
 		setImage(img);
-		
     }
     public void act() 
     {
