@@ -14,7 +14,7 @@ public class SpaceToJump extends KeyAndButton
      */
     public SpaceToJump(){
         GreenfootImage img = new GreenfootImage("Press [ Space bar ] to Jump",20,Color.BLACK,null);
-		img.setTransparency(100+Greenfoot.getRandomNumber(100)); 
+		img.setTransparency(160); 
 		setImage(img);
     }
     public void act() 

@@ -13,7 +13,7 @@ public class GoBack extends KeyAndButton
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public GoBack(){
-        GreenfootImage img = new GreenfootImage( "Main Manu",25,Color.BLACK,null);
+        GreenfootImage img = new GreenfootImage( "Main Menu",25,Color.BLACK,null);
 		//mg.setTransparency(100+Greenfoot.getRandomNumber(100)); 
 		setImage(img);
     }

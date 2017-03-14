@@ -15,7 +15,7 @@ public class Keys extends KeyAndButton
     public Keys(){
 		
         GreenfootImage img = new GreenfootImage("Press [ space ] or Up and Down to slide "+"\n Enter to select",20,Color.BLACK,null);
-		img.setTransparency(100+Greenfoot.getRandomNumber(100)); 
+		img.setTransparency(150); 
 		setImage(img);
 		
     }

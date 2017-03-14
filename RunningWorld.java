@@ -17,7 +17,7 @@ public class RunningWorld extends World
     NewWorld newWorld = new NewWorld();
     SpaceToJump spacebar = new SpaceToJump();
     ShowGetPoint point = new ShowGetPoint(); //show how to earn point
-    
+    TimeImage showTime = new TimeImage();
     public RunningWorld()
     {    
         // Create a new world with 400x600 cells with a cell size of 1x1 pixels.
@@ -26,7 +26,7 @@ public class RunningWorld extends World
         addObject(new Wall(),375,300);
         addObject(nini,100 ,500 );
         addObject(new Timer(),getWidth()/2,80 );
-        addObject(new TimeImage(),getWidth()/2,82);
+        addObject(showTime,getWidth()/2,82);
         addObject(score,getWidth()/2,100 );
         setPaintOrder(Cloud.class,Window.class,Ninja.class,KeyAndButton.class,
         ClothesLine.class,Wall2.class,Wall.class);
@@ -42,12 +42,12 @@ public class RunningWorld extends World
     }
     
     public void act(){
-       newWorld.eiei.setVolume(50);
+       newWorld.eiei.setVolume(60);
        easyMode();
        mediumMode();
        hardMode();
        
-       if(nini.isDead()){
+       if(nini.isDead() || showTime.getTime() == 0 ){
            newWorld.eiei.stop();
            Prize prize = new Prize();
            prize.fall.stop();
@@ -70,7 +70,7 @@ public class RunningWorld extends World
 
         if(count % 60 == 0){
             removeObject(spacebar);
-            addObject(point,getWidth()/2,130);
+            addObject(point,getWidth()/2,140);
         } 
         
          if(count % 90 == 0){

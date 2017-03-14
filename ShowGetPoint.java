@@ -15,7 +15,7 @@ public class ShowGetPoint extends KeyAndButton
     
     public ShowGetPoint(){
         GreenfootImage img = new GreenfootImage("Collect stars and elephents"+"\n to earn points",20,Color.BLACK,null);
-		img.setTransparency(100+Greenfoot.getRandomNumber(100)); 
+		img.setTransparency(160); 
 		setImage(img);
     }
     public void act() 

@@ -25,7 +25,7 @@ public class NewWorld extends World
     static boolean mediumPicked = false ;
     static boolean hardPicked = false ;
     int count = 0;
-    static GreenfootSound eiei=new GreenfootSound("start.wav");
+     static GreenfootSound eiei=new GreenfootSound("start.wav");
     public NewWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
