@@ -1,42 +1,41 @@
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Sun here.
- *
- * @author (your name)
+ * 
+ * @author (your name) 
  * @version (a version number or a date)
  */
-public class Star extends Actor {
-
+public class Star extends Actor
+{
     /**
-     * Act - do whatever the Sun wants to do. This method is called whenever the
-     * 'Act' or 'Run' button gets pressed in the environment.
+     * Act - do whatever the Sun wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
      */
     Ninja nini = new Ninja();
     GreenfootSound point = new GreenfootSound("collectSun.wav");
-
-    public Star() {
+    public Star(){
         GreenfootImage img = getImage();
-        img.scale(20, 20);
+        img.scale(20,20);
         setImage(img);
     }
-
-    public void act() {
+    public void act() 
+    {
         turn(5);
-        setLocation(getX(), getY() + nini.getRunSpeed() / 2);
-
-        if (isTouching(Ninja.class)) {
+        setLocation(getX(),getY()+nini.getRunSpeed()/2);
+       
+        
+        if(isTouching(Ninja.class)){
             point.setVolume(90);
             point.play();
             World myWorld = getWorld();
-            RunningWorld world = (RunningWorld) myWorld;
+            RunningWorld world = (RunningWorld)myWorld;
             Score score = world.getScore();
             score.addScore(100);
             getWorld().removeObject(this);
-        } else if (isAtEdge()) {
+        }  else if(isAtEdge()){
             getWorld().removeObject(this);
         }
-
-    }
+       
+    }    
 }
