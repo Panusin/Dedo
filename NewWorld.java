@@ -18,6 +18,7 @@ public class NewWorld extends World {
     Picking picking2 = new Picking(2);
     Picking picking3 = new Picking(3);
     EasyMode easy = new EasyMode();
+    
     MediumMode medium = new MediumMode();
     HardMode hard = new HardMode();
     Keys key = new Keys();
