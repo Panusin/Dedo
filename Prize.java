@@ -38,16 +38,16 @@ public class Prize extends Actor {
             time = 0;
         }
 
-        if (ran < 50 || getX() == 100) {
+        if (ran < 50 || getX() <= 100) {
             setLocation(getX() + speed / 2, getY() + speed);
-        } else if (ran > 50 || getX() == 300) {
+        } else if (ran > 50 || getX() >= 300) {
             setLocation(getX() - speed / 2, getY() + speed);
         }
 
         if (isTouching(Ninja.class)) {
             point.setVolume(90);
-            point.play();
             fall.stop();
+            point.play();
             World myWorld = getWorld();
             RunningWorld world = (RunningWorld) myWorld;
             Score score = world.getScore();

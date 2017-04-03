@@ -21,9 +21,9 @@ public class HighScore extends Actor {
     boolean check1;
     int check;
     String inputValue;
-
+    int score = (Score.score);
     public HighScore() {
-        int score = (Score.score);
+        
         if (highScore == 0) {
             PlayerName();
             highScore = score;
@@ -44,7 +44,7 @@ public class HighScore extends Actor {
         }
 
     }
-    
+   
     
     public void PlayerName(){
         check1 = false;

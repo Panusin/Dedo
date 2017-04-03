@@ -27,6 +27,7 @@ public class GameOverWorld extends World {
         addObject(new GoBack(), getWidth() / 2 - 80, 404);
         addObject(new PlayAgain(), getWidth() / 2 + 80, 404);
         newWorld.eiei.play();
+        
     }
 
     public void started() {
