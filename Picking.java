@@ -19,22 +19,22 @@ public class Picking extends KeyAndButton {
 
     public Picking(int i) {
         if (i == 1) {
-            GreenfootImage img = new GreenfootImage(">            <", 50, Color.DARK_GRAY, null);
-            setImage(img);
+            GreenfootImage img = new GreenfootImage(">            <", 50, Color.DARK_GRAY, null); //set text for pointer image
+            setImage(img); //set image for object
         } else if (i == 2) {
-            GreenfootImage img = new GreenfootImage(">                <", 50, Color.DARK_GRAY, null);
-            setImage(img);
+            GreenfootImage img = new GreenfootImage(">                <", 50, Color.DARK_GRAY, null);//set text for pointer image
+            setImage(img);//set image for object
         } else if (i == 3) {
-            GreenfootImage img = new GreenfootImage(">            <", 50, Color.DARK_GRAY, null);
-            setImage(img);
+            GreenfootImage img = new GreenfootImage(">            <", 50, Color.DARK_GRAY, null);//set text for pointer image
+            setImage(img);//set image for object
         } else if (i == 10) {
-            GreenfootImage img = new GreenfootImage(">>", 30, Color.DARK_GRAY, null);
-            img.rotate(90);
-            setImage(img);
+            GreenfootImage img = new GreenfootImage(">>", 30, Color.DARK_GRAY, null);//set text for pointer image
+            img.rotate(90); //resize image
+            setImage(img);//set image for object
         } else if (i == 11) {
-            GreenfootImage img = new GreenfootImage(">>", 30, Color.DARK_GRAY, null);
-            img.rotate(90);
-            setImage(img);
+            GreenfootImage img = new GreenfootImage(">>", 30, Color.DARK_GRAY, null);//set text for pointer image
+            img.rotate(90);//resize image
+            setImage(img);//set image for object
         }
     }
 

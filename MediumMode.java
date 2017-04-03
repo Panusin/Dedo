@@ -10,21 +10,12 @@ import java.awt.Color;
  */
 public class MediumMode extends KeyAndButton {
 
-    /**
-     * Act - do whatever the MediumMode wants to do. This method is called
-     * whenever the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public MediumMode() {
         GreenfootImage img = new GreenfootImage("MEDIUM", 50, Color.GRAY, null);
-        setImage(img);
-
-    }
-
-    public void act() {
-        // Add your action code here.
+        setImage(img); //set text for medium mode button
     }
 
     public int getWidth() {
-        return this.getImage().getWidth();
+        return this.getImage().getWidth(); //get width of text
     }
 }

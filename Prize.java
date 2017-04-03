@@ -13,49 +13,47 @@ public class Prize extends Actor {
      * Act - do whatever the Prize wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    Ninja nini = new Ninja();
+    Ninja nini = new Ninja(); //set ninja for speed check
 
-    int speed = nini.getRunSpeed();
-    int time = 0;
-    int ran;
-    GreenfootSound point = new GreenfootSound("collectAl.wav");
-    static GreenfootSound fall = new GreenfootSound("fall.wav");
+    int speed = nini.getRunSpeed(); //get speed of ninja 
+    int time = 0; //set time to 0
+    int ran; //declare variable
+    GreenfootSound point = new GreenfootSound("collectAl.wav"); //set sound
+    static GreenfootSound fall = new GreenfootSound("fall.wav"); //set sound
 
     public Prize() {
-        GreenfootImage img = getImage();
-        img.scale(50, 60);
-        setImage(img);
-        fall.setVolume(80);
-        fall.play();
+        GreenfootImage img = getImage(); //get image of an object
+        img.scale(50, 60); //resize the image
+        setImage(img); //set new image for this object
+        fall.setVolume(80); //set volume for the sound
+        fall.play(); //play the sound
     }
 
-    //speed = nini.getRunSpeed();
     public void act() {
-        time++;
+        time++; //incresae time by 1 overtime
 
-        if (time == 20) {
-            ran = Greenfoot.getRandomNumber(100);
-            time = 0;
+        if (time == 20) { // happen when time is 20
+            ran = Greenfoot.getRandomNumber(100); // random number of variable ran
+            time = 0; //reset time to 0
         }
 
-        if (ran < 50 || getX() <= 100) {
-            setLocation(getX() + speed / 2, getY() + speed);
-        } else if (ran > 50 || getX() >= 300) {
-            setLocation(getX() - speed / 2, getY() + speed);
+        if (ran < 50 || getX() == 100) { //happen when ran is less than 50 or object is at X of 100
+            setLocation(getX() + speed / 2, getY() + speed); //move object to right and going down constantly
+        } else if (ran > 50 || getX() == 300) {//happen when ran is more than 50 or object is at X of 300
+            setLocation(getX() - speed / 2, getY() + speed); //move object to left and going down constantly
         }
 
-        if (isTouching(Ninja.class)) {
-            point.setVolume(90);
-            fall.stop();
-            point.play();
-            World myWorld = getWorld();
-            RunningWorld world = (RunningWorld) myWorld;
-            Score score = world.getScore();
-            score.addScore(100);
-            getWorld().removeObject(this);
-
-        } else if (isAtEdge()) {
-            getWorld().removeObject(this);
+        if (isTouching(Ninja.class)) { //happen when touch ninja
+            point.setVolume(90); //set the volume for an object
+            point.play(); // play the sound
+            fall.stop(); //stop sound of fall
+            World myWorld = getWorld(); //get world that object is in
+            RunningWorld world = (RunningWorld) myWorld; //set world
+            Score score = world.getScore(); //use method in world
+            score.addScore(100);// add 100 points to score
+            getWorld().removeObject(this); //remove object when touch ninja
+        } else if (isAtEdge()) { // check if the object is at the edge of game screen
+            getWorld().removeObject(this); // remove object when it's at edge 
         }
 
     }

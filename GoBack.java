@@ -16,8 +16,7 @@ public class GoBack extends KeyAndButton {
      */
     public GoBack() {
         GreenfootImage img = new GreenfootImage("Main Menu", 25, Color.BLACK, null);
-        //mg.setTransparency(100+Greenfoot.getRandomNumber(100)); 
-        setImage(img);
+        setImage(img); //set text for go back to main menu
     }
 
     public void act() {

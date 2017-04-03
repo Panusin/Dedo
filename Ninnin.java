@@ -14,8 +14,8 @@ public class Ninnin extends Actor {
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Ninnin() {
-        GreenfootImage mm = getImage();
-        mm.scale(200, 200);
+        GreenfootImage mm = getImage(); //get image of this object
+        mm.scale(200, 200); //resize the image
     }
 
     public void act() {

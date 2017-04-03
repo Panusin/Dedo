@@ -16,9 +16,7 @@ public class PlayAgain extends KeyAndButton {
      */
     public PlayAgain() {
         GreenfootImage img = new GreenfootImage("Replay", 25, Color.BLACK, null);
-        //mg.setTransparency(100+Greenfoot.getRandomNumber(100)); 
-
-        setImage(img);
+        setImage(img); //set image for replay
     }
 
     public void act() {

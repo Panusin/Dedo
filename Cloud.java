@@ -13,18 +13,18 @@ public class Cloud extends Decorate {
      * Act - do whatever the Cloud wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int time = 0;
+    private int time = 0; //set time to 0
 
     public Cloud() {
-        GreenfootImage img = new GreenfootImage("cloud" + (Greenfoot.getRandomNumber(2) + 1) + ".png");
-        setImage(img);
+        GreenfootImage img = new GreenfootImage("cloud" + (Greenfoot.getRandomNumber(2) + 1) + ".png"); //random image for object
+        setImage(img); //set image for an object
     }
 
     public void act() {
-        time++;
-        if (time == 50) {
-            getWorld().removeObject(this);
-            time = 0;
+        time++; //increase time by 1
+        if (time == 50) { //happen when time is 50
+            getWorld().removeObject(this); // remove object when time is 50
+            time = 0; //reset time to 0
         }
     }
 }

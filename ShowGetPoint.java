@@ -18,7 +18,7 @@ public class ShowGetPoint extends KeyAndButton {
     public ShowGetPoint() {
         GreenfootImage img = new GreenfootImage("Collect stars and elephants" + "\n to earn points", 20, Color.BLACK, null);
         img.setTransparency(160);
-        setImage(img);
+        setImage(img); //set text to be transparent 
     }
 
     public void act() {

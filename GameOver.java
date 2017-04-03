@@ -16,7 +16,7 @@ public class GameOver extends KeyAndButton {
      */
     public GameOver() {
         GreenfootImage gg = new GreenfootImage("Game Over", 50, Color.BLACK, null);
-        setImage(gg);
+        setImage(gg); //set text for gameover 
     }
 
     public void act() {

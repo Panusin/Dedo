@@ -9,17 +9,14 @@ import java.awt.Color;
  * @version (a version number or a date)
  */
 public class EasyMode extends KeyAndButton {
-
-    boolean easy = false;
+    boolean easy = false; // set easy to false
 
     public EasyMode() {
         GreenfootImage img = new GreenfootImage("EASY", 50, Color.GRAY, null);
-        setImage(img);
-
+        setImage(img); //set text for easy mode button
     }
 
     public int getWidth() {
-        return this.getImage().getWidth();
+        return this.getImage().getWidth(); //get width of text
     }
-
 }
