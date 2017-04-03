@@ -15,6 +15,7 @@ public class SpaceToJump extends KeyAndButton {
      * whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
     public SpaceToJump() {
+        // make image to show how to play by using greenfoot image
         GreenfootImage img = new GreenfootImage("Press [ Space bar ] to Jump", 20, Color.BLACK, null);
         img.setTransparency(160);
         setImage(img);

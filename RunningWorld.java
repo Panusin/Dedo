@@ -27,12 +27,13 @@ public class RunningWorld extends World {
         super(400, 600, 1);
         addObject(new Wall(), 26, 300);
         addObject(new Wall(), 375, 300);
-        addObject(nini, 100, 500);
+        addObject(nini, 100, 500); //add ninja class
         addObject(new Timer(), getWidth() / 2, 80);
         addObject(showTime, getWidth() / 2, 82);
         addObject(score, getWidth() / 2, 100);
+        newWorld.eiei.setVolume(60);
         setPaintOrder(Cloud.class, Window.class, Ninja.class, KeyAndButton.class,
-                ClothesLine.class, Wall2.class, Wall.class);
+                ClothesLine.class, Wall2.class, Wall.class); // to set classes will always be show on the top
 
     }
 
@@ -45,38 +46,36 @@ public class RunningWorld extends World {
     }
 
     public void act() {
-        newWorld.eiei.setVolume(60);
         easyMode();
         mediumMode();
         hardMode();
-
-        if (nini.isDead() || showTime.getTime() == 0) {
+        if (nini.isDead() || showTime.getTime() == 0) { // stop the sounds when player is dead
             newWorld.eiei.stop();
             Prize prize = new Prize();
             prize.fall.stop();
             Object ob = new Object();
             ob.ss.stop();
-            Greenfoot.setWorld(new GameOverWorld());
+            Greenfoot.setWorld(new GameOverWorld()); // go to scoreborad (GameOverWorld)
         }
 
-        if (count == 601) {
+        if (count % 30 == 0) {
+            addObject(spacebar, getWidth() / 2, 574); // add show string how to jump
+        }
+
+        if (count % 60 == 0) {
+            removeObject(spacebar); // remove show how to jump
+            addObject(point, getWidth() / 2, 140); // add show string how to earn points
+        }
+
+        if (count % 90 == 0) {
+            removeObject(point); //remove show how to earn points
+        }
+        
+        if (count == 601) { //remove show how to jump and how to earn points
             removeObject(spacebar);
             removeObject(point);
         } else {
             count++;
-        }
-
-        if (count % 30 == 0) {
-            addObject(spacebar, getWidth() / 2, 574);
-        }
-
-        if (count % 60 == 0) {
-            removeObject(spacebar);
-            addObject(point, getWidth() / 2, 140);
-        }
-
-        if (count % 90 == 0) {
-            removeObject(point);
         }
 
     }
@@ -89,62 +88,62 @@ public class RunningWorld extends World {
         return score;
     }
 
-    public void easyMode() {
-        if (Greenfoot.isKeyDown("escape")) {
+    public void easyMode() {// mode picked
+        if (Greenfoot.isKeyDown("escape")) { //type escape to exite the game mode
             Greenfoot.setWorld(new NewWorld());
         }
 
-        if (newWorld.isEasyMode()) {
+        if (newWorld.isEasyMode()) { //return true if easymode was picked
             time++;
             nini.setRunSpeed(5);
             nini.setJumpSpeed(8, 1);
-            if (time == 1 || time == 25) {
+            if (time == 1 || time == 25) { //add wall on lift and right side 
                 addObject(new Wall(), 26, -100);
                 addObject(new Wall(), 375, -100);
             }
 
-            if (time == 10 && Greenfoot.getRandomNumber(100) < 5) {
+            if (time == 10 && Greenfoot.getRandomNumber(100) < 5) { //add clothes line to by random a chance
                 addObject(new ClothesLine(), getWidth() / 2, 0);
 
             }
 
-            if (time == 20 || time == 40) {
+            if (time == 20 || time == 40) { //add clouds by using check time 
                 addObject(new Cloud(), getWidth() / 2, Greenfoot.getRandomNumber(20) + 50);
             }
 
-            if (time == 30 && (Greenfoot.getRandomNumber(10) < 8)) {
+            if (time == 30 && (Greenfoot.getRandomNumber(10) < 8)) {//every time = 30 and have 80% to add windows
                 addObject(new Window(), decPosition[Greenfoot.getRandomNumber(decPosition.length)], -100);
             }
 
-            if (time == 20 || time == 40) {
+            if (time == 20 || time == 40) {// add wall every time = 20 and 40
                 addObject(new Wall2(), 26, -100);
                 addObject(new Wall2(), 375, -100);
 
             }
 
-            if (time == 60) { //
-                ranNum = Greenfoot.getRandomNumber(100);
-                if (ranNum < 50) {
+            if (time == 60) { //every time = 60 add classes below
+                ranNum = Greenfoot.getRandomNumber(100); // random number between 0-99
+                if (ranNum < 50) {// if the number less than 50 wo add balcony
                     if (ranNum < 25) {
-                        addObject(new LBalcony(), 106, -100);
+                        addObject(new LBalcony(), 106, -100);//add left balcony
                     } else {
-                        addObject(new RBalcony(), 295, -100);
+                        addObject(new RBalcony(), 295, -100);//add right balony
                     }
                 }
 
-                if (ranNum < 10) {
+                if (ranNum < 10) {// if tne number less than 10 then add prize that have point
                     addObject(new Prize(), getWidth() / 2, 0);
                 }
 
-                if (ranNum < 40) {
+                if (ranNum < 40) {//if the number less than 40 will add stars that have points
                     if (ranNum < 20) {
-                        addObject(new Star(), 106, 0);
+                        addObject(new Star(), 106, 0); //star falling on left side
                     } else {
-                        addObject(new Star(), 295, 0);
+                        addObject(new Star(), 295, 0); //star falling on right side
                     }
                 }
 
-                if (ranNum < 30) {
+                if (ranNum < 30) { // add falling stuff to block ninja by the number to be added
                     if (ranNum < 15) {
                         addObject(new Object(), getWidth() / 2, 0);
                     }
@@ -156,7 +155,7 @@ public class RunningWorld extends World {
         }
     }
 
-    public void mediumMode() {
+    public void mediumMode() {// they are look the same as easyMode by increse more speed
         if (Greenfoot.isKeyDown("escape")) {
             Greenfoot.setWorld(new NewWorld());
         }
@@ -219,14 +218,14 @@ public class RunningWorld extends World {
                     }
                 }
 
-                if (time == 60) {
+                if (time == 60) { 
                     time = 0;
                 }
             }
         }
     }
 
-    public void hardMode() {
+    public void hardMode() {// they are look the same as mediumMode by increse more speed and more chance to be dead
         if (Greenfoot.isKeyDown("escape")) {
             Greenfoot.setWorld(new NewWorld());
         }
@@ -287,6 +286,7 @@ public class RunningWorld extends World {
                     addObject(new Object(), getWidth() / 2, 0);
 
                 }
+                
                 if (time == 60) {
                     time = 0;
                 }

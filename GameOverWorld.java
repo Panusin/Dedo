@@ -39,8 +39,11 @@ public class GameOverWorld extends World {
     }
 
     public void act() {
-
-        String keyDown = Greenfoot.getKey();
+       choosing();
+    }
+    public void choosing(){
+        // check to select go to main menu or replay
+         String keyDown = Greenfoot.getKey();
         if (keyDown == "space" || keyDown == "down" || keyDown == "up") {
 
             if (keyDown == "up") {
@@ -69,7 +72,7 @@ public class GameOverWorld extends World {
             }
         }
 
-        if (pick == 11) {
+        if (pick == 11) {// replay game mode
             addObject(picking11, getWidth() / 2 + 80, 377);
             removeObject(picking10);
 
@@ -87,7 +90,7 @@ public class GameOverWorld extends World {
             removeObject(key);
             count = 0;
         }
-
+    
     }
 
     public NewWorld getNewWorld() {

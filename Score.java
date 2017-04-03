@@ -19,13 +19,14 @@ public class Score extends KeyAndButton {
     Ninja nini = new Ninja();
 
     public Score() {
-        GreenfootImage gg = new GreenfootImage("score " + score, 15, Color.BLACK, null);
+        GreenfootImage gg = new GreenfootImage("score " + score, 15, Color.BLACK, null); // draw score word on the image 
         setImage(gg);
         score = 0;
     }
 
     public void act() {
         time++;
+        //increse score by plud run speed number( more speed would get more points)  
         if (time == 10) {
 
             if (score <= 1000) {
@@ -33,24 +34,24 @@ public class Score extends KeyAndButton {
             } else {
                 score = score + nini.getRunSpeed() / 2;
             }
-            updateScore();
+            updateScore();// update the score every time
             time = 0;
         }
 
     }
 
-    public void updateScore() {
+    public void updateScore() {// method to update the score
         GreenfootImage gg = new GreenfootImage("score " + score, 15, Color.BLACK, null);
         setImage(gg);
 
     }
 
-    public void addScore(int x) {
+    public void addScore(int x) {// this method will be used in Prize class and Star class
         score += x;
         updateScore();
     }
 
-    public int getScore() {
+    public int getScore() { // get number of score
         return score;
     }
 }

@@ -15,7 +15,7 @@ public class Keys extends KeyAndButton {
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Keys() {
-
+          // make image to show how to play by using greenfoot image
         GreenfootImage img = new GreenfootImage("Press [ spacebar ] or Up and Down button to slide " + "\n and press Enter to select", 20, Color.BLACK, null);
         img.setTransparency(150);
         setImage(img);

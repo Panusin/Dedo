@@ -15,7 +15,7 @@ public class HardMode extends KeyAndButton {
      * whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
     public HardMode() {
-        GreenfootImage img = new GreenfootImage("HARD", 50, Color.GRAY, null);
+        GreenfootImage img = new GreenfootImage("HARD", 50, Color.GRAY, null); // make image by using greenfoot image
         setImage(img);
 
     }

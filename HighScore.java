@@ -21,24 +21,24 @@ public class HighScore extends Actor {
     boolean check1;
     int check;
     String inputValue;
-    int score = (Score.score);
+    int score = (Score.score); 
     public HighScore() {
         
-        if (highScore == 0) {
+        if (highScore == 0) { 
             PlayerName();
             highScore = score;
             GreenfootImage gg = new GreenfootImage(playername + "\nNew high score:  " + highScore, 20, Color.BLACK, null);
             setImage(gg);
         }
 
-        if (score > highScore && highScore != 0) {
+        if (score > highScore && highScore != 0) { 
             PlayerName();
             highScore = score;
             GreenfootImage gg = new GreenfootImage(playername+ "\nNew high score:  " + highScore, 20, Color.BLACK, null);
             setImage(gg);
         }
 
-        if (score < highScore && highScore != 0) {
+        if (score < highScore && highScore != 0) { 
             GreenfootImage gg = new GreenfootImage(playername+ "\nHigh score: " + highScore + "\n\n Your score:  " + score, 20, Color.BLACK, null);
             setImage(gg);
         }
