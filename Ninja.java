@@ -48,32 +48,33 @@ public class Ninja extends Actor
          
     } 
  
-    public void checkKey(){
-        //jumpToLeft
+    public void checkKey(){// we check if this actor is on the lift or right wall 
+        //then we allow to jump only on the wall.
+        //jumpToLeft mean allow to jump to the left wall.
         if(Greenfoot.isKeyDown("space")&& rightToLeft == false && onRightWall() ){        
             setLocation(getX()-1,getY()); 
             playSound("jump.wav");
             rightToLeft = true;
-            
+            //means allow actoe jump to the left wall.
         }
         //jumpToright;
          if(Greenfoot.isKeyDown("space") && leftToRight == false && onLeftWall()){
             setLocation(getX()+1,getY());
             playSound("jump.wav");
             leftToRight = true;
-            
+            //means allow actor jump to right  wall.
         }
         
     }
   
-    public void setImage(String name,int rota){
+    public void setImage(String name,int rota){ // set image and set rotation
         GreenfootImage img = new GreenfootImage(name);
         img.scale(50,50);
         setRotation(rota);
         setImage(img);
     }    
    
-     public void setToOnWallPosition(){//set back to on wall
+     public void setToOnWallPosition(){//set actor back on wall 
          if(getX() < 100){//go out of left wall
            setImage("runLeft1.png",90);
            setLocation(100,getY());
@@ -88,7 +89,7 @@ public class Ninja extends Actor
         
     }
     
-    public void fall(){
+    public void fall(){ // falling when the actor get Y location is less than Y =500
        if((onLeftWall() || onRightWall()) && getY() < 500){
           //checkPosition();
           setLocation(getX(),getY()+(getRunSpeed()*2/3));
@@ -97,7 +98,7 @@ public class Ninja extends Actor
         
     }
     
-    public boolean isJump(){
+    public boolean isJump(){ // check actor is jumping or not
         if(!onLeftWall() && !onRightWall()){
         return true;
        }else{
@@ -106,7 +107,6 @@ public class Ninja extends Actor
     }
     
     public void checkJump(){
-            
             jump();
             
     }
@@ -126,21 +126,12 @@ public class Ninja extends Actor
     
     public boolean isDead(){
         Actor obstacle ;
-         //obstacle = getOneIntersectingObject(Obstacle.class);
          obstacle = getOneObjectAtOffset(0,0,Obstacle.class); 
-        
-        //obstacle = getOneObjectAtOffset(getImage().getWidth()/2,0,Obstacle.class);
-        //obstacle = getOneObjectAtOffset(getImage().getWidth(),0,Obstacle.class);
-        //obstacle = getOneObjectAtOffset(0,getImage().getHeight()/2,Obstacle.class);
-        // obstacle = getOneObjectAtOffset(getImage().getWidth()/2,0,Obstacle.class);
-        //obstacle = getOneObjectAtOffset(0,getImage().getHeight(),Obstacle.class);
-        // obstacle = getOneObjectAtOffset(getImage().getWidth()/2,getImage().getHeight(),Obstacle.class);
-       // obstacle = getOneObjectAtOffset(getImage().getWidth(),0,Obstacle.class);
         return obstacle != null;
     }
      
     
-    public void animationRun(){
+    public void animationRun(){ //Image animation actor
         frame++;
         if(onLeftWall()){
             
@@ -180,16 +171,12 @@ public class Ninja extends Actor
        
     }
     
-    public void autoPlay(){
-        
-    
-    }
-      
-    public void setJumpSpeed(int vx,int vy){
+    public void setJumpSpeed(int vx,int vy){ 
         vSpeedX = vx;
         vSpeedY = vy;
     }
-    public void setRunSpeed(int runspeed){
+    
+    public void setRunSpeed(int runspeed){ 
         runSpeed = runspeed;
     }
     

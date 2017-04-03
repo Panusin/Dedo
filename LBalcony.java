@@ -21,7 +21,6 @@ public class LBalcony extends Obstacle
     public void act() 
     {
          setLocation(getX(),getY()+nini.getRunSpeed());
-       
         if(isAtEdge()){
            getWorld().removeObject(this);
         }
